@@ -72,7 +72,7 @@ export default function Index() {
           <div className="flex items-center gap-2">
             <Globe className="h-6 w-6 text-accent" />
             <span className="text-primary-foreground font-bold text-xl tracking-tight">
-              Trip<span className="text-accent">Wise</span>
+              Roam<span className="text-accent">ify</span>
             </span>
           </div>
           <div className="flex items-center gap-1.5 bg-card/10 border border-card/20 rounded-full px-3 py-1.5 backdrop-blur-sm">
