@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      destinations: {
+        Row: {
+          activity_avg_cost: number
+          avg_daily_food_cost: number
+          avg_flight_price: number
+          avg_hotel_price_per_night: number
+          country: string
+          created_at: string
+          currency: string
+          currency_symbol: string
+          destination_city: string
+          highlights: string[]
+          id: number
+          image_emoji: string | null
+          local_transport_daily_cost: number
+          region: string
+          tier: string
+          usd_rate: number
+        }
+        Insert: {
+          activity_avg_cost: number
+          avg_daily_food_cost: number
+          avg_flight_price: number
+          avg_hotel_price_per_night: number
+          country: string
+          created_at?: string
+          currency: string
+          currency_symbol: string
+          destination_city: string
+          highlights?: string[]
+          id?: number
+          image_emoji?: string | null
+          local_transport_daily_cost: number
+          region: string
+          tier: string
+          usd_rate: number
+        }
+        Update: {
+          activity_avg_cost?: number
+          avg_daily_food_cost?: number
+          avg_flight_price?: number
+          avg_hotel_price_per_night?: number
+          country?: string
+          created_at?: string
+          currency?: string
+          currency_symbol?: string
+          destination_city?: string
+          highlights?: string[]
+          id?: number
+          image_emoji?: string | null
+          local_transport_daily_cost?: number
+          region?: string
+          tier?: string
+          usd_rate?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
