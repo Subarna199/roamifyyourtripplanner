@@ -208,6 +208,22 @@ export const destinations: Destination[] = [
     tier: "premium",
     highlights: ["Gardens by the Bay", "Hawker centres", "Marina Bay Sands"],
   },
+  {
+  destination_city: "Pokhara",
+  country: "Nepal",
+  region: "Asia",
+  avg_flight_price: 620,
+  avg_hotel_price_per_night: 35,
+  avg_daily_food_cost: 14,
+  local_transport_daily_cost: 5,
+  activity_avg_cost: 120,
+  currency: "NPR",
+  currency_symbol: "₨",
+  usd_rate: 132.5,
+  image_emoji: "🏞️",
+  tier: "budget",
+  highlights: ["Phewa Lake", "Paragliding", "Annapurna views"],
+},
 ];
 
 export interface TripParams {
