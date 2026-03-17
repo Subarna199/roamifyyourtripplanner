@@ -33,6 +33,22 @@ export const destinations: Destination[] = [
     highlights: ["Street food paradise", "Grand Palace", "Night markets"],
   },
   {
+  "destination_city": "Helsinki",
+  "country": "Finland",
+  "region": "Europe",
+  "avg_flight_price": 520,
+  "avg_hotel_price_per_night": 120,
+  "avg_daily_food_cost": 35,
+  "local_transport_daily_cost": 10,
+  "activity_avg_cost": 150,
+  "currency": "EUR",
+  "currency_symbol": "€",
+  "usd_rate": 0.92,
+  "image_emoji": "🇫🇮",
+  "tier": "mid-range",
+  "highlights": ["Suomenlinna Fortress", "Helsinki Cathedral", "Market Square"]
+},
+  {
     "destination_city": "Abeokuta",
     "country": "Nigeria",
     "region": "Africa",
