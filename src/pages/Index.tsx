@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { destinations, calculateTripCost, TripParams, TripCost } from "@/data/destinations";
+import { supabase } from "@/integrations/supabase/client";
+import { calculateTripCost, TripParams, TripCost, Destination } from "@/data/destinations";
 import { TripPlannerForm } from "@/components/TripPlannerForm";
 import { DestinationCard } from "@/components/DestinationCard";
 import { SummaryStats } from "@/components/SummaryStats";
@@ -15,16 +16,55 @@ const defaultParams: TripParams = {
 };
 
 export default function Index() {
+  const [allDestinations, setAllDestinations] = useState<Destination[]>([]);
   const [results, setResults] = useState<TripCost[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [sortBy, setSortBy] = useState<"total" | "perPerson" | "flight" | "hotel">("total");
 
+  // Fetch destinations from database
+  useEffect(() => {
+    const fetchDestinations = async () => {
+      const { data, error } = await supabase
+        .from("destinations")
+        .select("*")
+        .order("destination_city");
+
+      if (!error && data) {
+        const mapped: Destination[] = data.map((d) => ({
+          destination_city: d.destination_city,
+          country: d.country,
+          region: d.region,
+          avg_flight_price: d.avg_flight_price,
+          avg_hotel_price_per_night: d.avg_hotel_price_per_night,
+          avg_daily_food_cost: d.avg_daily_food_cost,
+          local_transport_daily_cost: d.local_transport_daily_cost,
+          activity_avg_cost: d.activity_avg_cost,
+          currency: d.currency,
+          currency_symbol: d.currency_symbol,
+          usd_rate: d.usd_rate,
+          image_emoji: d.image_emoji ?? "🌍",
+          tier: (["budget", "moderate", "premium"].includes(d.tier) ? d.tier : "moderate") as Destination["tier"],
+          highlights: d.highlights ?? [],
+        }));
+        setAllDestinations(mapped);
+      }
+    };
+    fetchDestinations();
+  }, []);
+
+  // Run search when destinations load or change
+  useEffect(() => {
+    if (allDestinations.length > 0) {
+      handleSearch(defaultParams);
+    }
+  }, [allDestinations]);
+
   const handleSearch = (params: TripParams) => {
     setIsLoading(true);
 
     setTimeout(() => {
-      let filtered = destinations;
+      let filtered = allDestinations;
 
       if (params.region_filter && params.region_filter !== "All Regions") {
         filtered = filtered.filter((d) => d.region === params.region_filter);
@@ -47,11 +87,6 @@ export default function Index() {
     if (sortBy === "hotel") return a.hotel_total - b.hotel_total;
     return a.grand_total - b.grand_total;
   });
-
-  // Run default search on mount
-  useEffect(() => {
-    handleSearch(defaultParams);
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,7 +121,7 @@ export default function Index() {
           <div className="mb-3">
             <span className="inline-flex items-center gap-1.5 bg-accent/20 border border-accent/30 text-accent rounded-full px-3 py-1 text-sm font-semibold backdrop-blur-sm">
               <MapPin className="h-3.5 w-3.5" />
-              {destinations.length} destinations compared
+              {allDestinations.length} destinations compared
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-3 leading-tight">
