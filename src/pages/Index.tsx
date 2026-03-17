@@ -114,7 +114,7 @@ export default function Index() {
           <div className="mb-3">
             <span className="inline-flex items-center gap-1.5 bg-accent/20 border border-accent/30 text-accent rounded-full px-3 py-1 text-sm font-semibold backdrop-blur-sm">
               <MapPin className="h-3.5 w-3.5" />
-              {destinations.length} destinations compared
+              {allDestinations.length} destinations compared
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-3 leading-tight">
