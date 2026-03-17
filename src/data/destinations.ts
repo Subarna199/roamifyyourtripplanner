@@ -45,7 +45,7 @@ export const destinations: Destination[] = [
   "currency_symbol": "€",
   "usd_rate": 0.92,
   "image_emoji": "🇫🇮",
-  "tier": "mid-range",
+  "tier": "moderate",
   "highlights": ["Suomenlinna Fortress", "Helsinki Cathedral", "Market Square"]
 },
   {
