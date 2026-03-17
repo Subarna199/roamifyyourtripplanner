@@ -33,6 +33,22 @@ export const destinations: Destination[] = [
     highlights: ["Street food paradise", "Grand Palace", "Night markets"],
   },
   {
+    "destination_city": "Abeokuta",
+    "country": "Nigeria",
+    "region": "Africa",
+    "avg_flight_price": 500,                 // Approximate international flight in USD
+    "avg_hotel_price_per_night": 20,        // Budget hotel
+    "avg_daily_food_cost": 5,                // Local meals
+    "local_transport_daily_cost": 2,        // Taxis/minibuses
+    "activity_avg_cost": 10,                 // Sightseeing and small activities
+    "currency": "NGN",
+    "currency_symbol": "₦",
+    "usd_rate": 0.0027,                      // 1 NGN ≈ 0.0027 USD
+    "image_emoji": "🌍",
+    "tier": "budget",
+    "highlights": ["Olumo Rock", "Itoku Market", "Abeokuta Museum"]
+}
+  {
     destination_city: "Bali",
     country: "Indonesia",
     region: "Asia",
