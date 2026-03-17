@@ -16,6 +16,22 @@ export interface Destination {
 }
 
 export const destinations: Destination[] = [
+    {
+    destination_city: "Bangkok",
+    country: "Thailand",
+    region: "Asia",
+    avg_flight_price: 650,
+    avg_hotel_price_per_night: 55,
+    avg_daily_food_cost: 18,
+    local_transport_daily_cost: 8,
+    activity_avg_cost: 120,
+    currency: "THB",
+    currency_symbol: "฿",
+    usd_rate: 35.2,
+    image_emoji: "🏯",
+    tier: "budget",
+    highlights: ["Street food paradise", "Grand Palace", "Night markets"],
+  },
   {
     "destination_city": "Abeokuta",
     "country": "Nigeria",
