@@ -272,6 +272,22 @@ export const destinations: Destination[] = [
   tier: "budget",
   highlights: ["Phewa Lake", "Paragliding", "Annapurna views"],
 },
+  {
+  "destination_city": "Kokkola",
+  "country": "Finland",
+  "region": "Europe",
+  "avg_flight_price": 250, 
+  "avg_hotel_price_per_night": 70, 
+  "avg_daily_food_cost": 25, 
+  "local_transport_daily_cost": 10, 
+  "activity_avg_cost": 60, 
+  "currency": "EUR",
+  "currency_symbol": "€",
+  "usd_rate": 1.08, 
+  "image_emoji": "🏰",
+  "tier": "budget",
+  "highlights": ["Old Town Street", "Kaarle Town Hall", "Local Museums", "Coastal Views"]
+},
 ];
 
 export interface TripParams {
