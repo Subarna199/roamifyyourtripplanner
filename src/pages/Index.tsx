@@ -81,6 +81,13 @@ export default function Index() {
     }, 600);
   };
 
+  const sortedResults = [...results].sort((a, b) => {
+    if (sortBy === "perPerson") return a.per_person_total - b.per_person_total;
+    if (sortBy === "flight") return a.flight_total - b.flight_total;
+    if (sortBy === "hotel") return a.hotel_total - b.hotel_total;
+    return a.grand_total - b.grand_total;
+  });
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
